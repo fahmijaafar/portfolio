@@ -188,3 +188,16 @@ const toggleTheme = () => {
 }
 
 $themeButton.addEventListener("click", toggleTheme)
+
+const sendMessage = () =>{
+   var name = document.getElementById("name").value;
+   var email = document.getElementById("email").value;
+   var project = document.getElementById("project").value;
+   var message = document.getElementById("message").value;
+   
+   const response = fetch("https://fahmijaafar.com/contact/api/create-message.php?name=" + name + "&email=" + email + "&project=" + project + "&message=" + message, {
+   method: 'POST'});
+
+   console.log(response)
+}
+document.getElementById("btn-submit").onclick = function() {sendMessage()};
