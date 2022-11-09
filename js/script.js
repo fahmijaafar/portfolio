@@ -189,15 +189,56 @@ const toggleTheme = () => {
 
 $themeButton.addEventListener("click", toggleTheme)
 
+// sendMessage = async () =>{
+//    var name = document.getElementById("name").value;
+//    var email = document.getElementById("email").value;
+//    var project = document.getElementById("project").value;
+//    var message = document.getElementById("message").value;
+   
+//    response = await fetch("https://fahmijaafar.com/contact/api/create-message.php?name=" + name + "&email=" + email + "&project=" + project + "&message=" + message, {
+//    method: 'POST'});
+   
+//    // url = "https://fahmijaafar.com/contact/api/create-message.php?name=" + name + "&email=" + email + "&project=" + project + "&message=" + message
+   
+//    // fetch(url, {method: "POST"}).then(res => {
+//    //    console.log("Request complete! response:", res)})
+//    console.log(response.json())
+// }
+
+
 const sendMessage = () =>{
+
    var name = document.getElementById("name").value;
    var email = document.getElementById("email").value;
    var project = document.getElementById("project").value;
    var message = document.getElementById("message").value;
-   
-   const response = fetch("https://fahmijaafar.com/contact/api/create-message.php?name=" + name + "&email=" + email + "&project=" + project + "&message=" + message, {
-   method: 'POST'});
 
-   console.log(response)
-}
+   var createAPI = 'https://fahmijaafar.com/contact/api/createmessage.php'
+      var header = {
+         'Accept': 'application/json',
+         'Content-type': 'application/json'
+      };
+      var data={
+         name: name,
+         email: email,
+         project: project,
+         message: message
+      };
+      fetch(createAPI,{
+         method: 'POST',
+         headers: header,
+         body: JSON.stringify(data)
+      })
+      .then((response)=>response.json())
+      .then((response)=>{
+         if (response[0].success == 1){
+         alert("Success!","The message has been sent.")
+         }else{
+         alert("Error in sending the message. Please try again later.")
+         }
+      })
+      .catch((error)=>{
+   alert("Error" + error);
+})
+ }
 document.getElementById("btn-submit").onclick = function() {sendMessage()};
