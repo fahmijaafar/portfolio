@@ -206,39 +206,39 @@ $themeButton.addEventListener("click", toggleTheme)
 // }
 
 
-const sendMessage = () =>{
+// const sendMessage = () =>{
 
-   var name = document.getElementById("name").value;
-   var email = document.getElementById("email").value;
-   var project = document.getElementById("project").value;
-   var message = document.getElementById("message").value;
+//    var name = document.getElementById("name").value;
+//    var email = document.getElementById("email").value;
+//    var project = document.getElementById("project").value;
+//    var message = document.getElementById("message").value;
 
-   var createAPI = 'https://fahmijaafar.com/contact/api/createmessage.php'
-      var header = {
-         'Accept': 'application/json',
-         'Content-type': 'application/json'
-      };
-      var data={
-         name: name,
-         email: email,
-         project: project,
-         message: message
-      };
-      fetch(createAPI,{
-         method: 'POST',
-         headers: header,
-         body: JSON.stringify(data)
-      })
-      .then((response)=>response.json())
-      .then((response)=>{
-         if (response[0].success == 1){
-         alert("Success!","The message has been sent.")
-         }else{
-         alert("Error in sending the message. Please try again later.")
-         }
-      })
-      .catch((error)=>{
-   alert("Error" + error);
-})
- }
-document.getElementById("btn-submit").onclick = function() {sendMessage()};
+//    var createAPI = 'https://fahmijaafar.com/contact/api/createmessage.php'
+//       var header = {
+//          'Accept': 'application/json',
+//          'Content-type': 'application/json'
+//       };
+//       var data={
+//          name: name,
+//          email: email,
+//          project: project,
+//          message: message
+//       };
+//       fetch(createAPI,{
+//          method: 'POST',
+//          headers: header,
+//          body: JSON.stringify(data)
+//       })
+//       .then((response)=>response.json())
+//       .then((response)=>{
+//          if (response[0].success == 1){
+//          alert("Success!","The message has been sent.")
+//          }else{
+//          alert("Error in sending the message. Please try again later.")
+//          }
+//       })
+//       .catch((error)=>{
+//    alert("Error" + error);
+// })
+//  }
+// document.getElementById("btn-submit").onclick = function() {sendMessage()};
