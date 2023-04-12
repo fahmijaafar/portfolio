@@ -1010,23 +1010,30 @@
       document.getElementById("btn-submit").onclick = function() {submitForm()};
       
       function submitForm(){
+
          var name = document.getElementById("name").value;
          var email = document.getElementById("email").value;
          var project = document.getElementById("project").value;
          var message = document.getElementById("message").value;
+         
+         if(name != '' && email != '' && project != '' && message != ''){
+            db.collection("contactform").add({
+               name: name,
+               email: email,
+               project: project,
+               message: message
+            })
+            .then(()=>{
+               alert("Your submission has been recorded. Thank you and I'll get back to you shortly.")
+            })
+            .catch((error) => {
+               console.error("Error adding document: ", error);
+            });
+         }else{
+            alert("Your form isn't completed. Kindly ensure you have filled out all the fields.")
+         }
+         
 
-         db.collection("contactform").add({
-            name: name,
-            email: email,
-            project: project,
-            message: message
-         })
-         .then(()=>{
-            alert("Your submission has been recorded. Thank you and I'll get back to you shortly.")
-         })
-         .catch((error) => {
-            console.error("Error adding document: ", error);
-         });
       }      
    </script>
 
