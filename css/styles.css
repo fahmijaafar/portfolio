@@ -1066,6 +1066,7 @@ body > .btn-totop > img {
    grid-template-columns: repeat(2, 1fr);
    grid-template-rows: repeat(2, 22rem);
    column-gap: 2rem;
+   justify-content: center;
    row-gap: 2.4rem; }
 
    @media screen and (min-width: 610px) {
