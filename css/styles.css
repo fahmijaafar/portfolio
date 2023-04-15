@@ -1179,7 +1179,7 @@ body > .btn-totop > img {
 
 .services > .container > .services-wrap > .service-card > .service-modal > .modal-content {
    width: 30.7rem;
-   height: 26.5rem;
+   /* height: 26.5rem; */
    border-radius: 1rem;
    padding: 2.4rem 2rem 2.4rem 2.4rem;
    background-color: var(--background-color); }
